@@ -1,8 +1,12 @@
 import { ApiProperty } from "@nestjs/swagger";
 import { IsString } from "class-validator";
 
-export class RefreshTokenDto {
+export class CategoryDto {
     @ApiProperty()
     @IsString()
-    refreshToken: string
+    name: string
+
+    @ApiProperty()
+    @IsString()
+    image: string
 }

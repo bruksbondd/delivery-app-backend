@@ -9,7 +9,10 @@ import {
 import { AuthService } from './auth.service'
 import { AuthDto } from './dto/auth.dto'
 import { RefreshTokenDto } from './dto/reftesh-token.dto'
+import { Auth } from './decorators/auth.decorators'
+import { ApiTags } from '@nestjs/swagger'
 
+@ApiTags('Auth')
 @Controller('auth')
 export class AuthController {
 	constructor(private readonly authService: AuthService) {}
@@ -24,6 +27,7 @@ export class AuthController {
 	@UsePipes(new ValidationPipe())
 	@HttpCode(200)
 	@Post('login/access-token')
+	@Auth()
 	async getNewTokkens(@Body() dto: RefreshTokenDto) {
 		return this.authService.getNewTokkens(dto.refreshToken)
 	}
