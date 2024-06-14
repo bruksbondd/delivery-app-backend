@@ -1,9 +1,18 @@
-import { Body, Controller, Delete, Get, HttpCode, Param, Patch, Post, Put, UsePipes, ValidationPipe } from '@nestjs/common'
+import {
+	Body,
+	Controller,
+	Delete,
+	Get,
+	HttpCode,
+	Param,
+	Post,
+	Put,
+	UsePipes,
+	ValidationPipe
+} from '@nestjs/common'
 import { CategoryService } from './category.service'
 import { CategoryDto } from './dto/category.dto'
-import { ApiTags } from '@nestjs/swagger'
 
-@ApiTags('Categories')
 @Controller('categories')
 export class CategoryController {
 	constructor(private readonly categoryService: CategoryService) {}
@@ -13,32 +22,27 @@ export class CategoryController {
 		return this.categoryService.getAll()
 	}
 
-	@Get('by-id/:id')
-	async getById(@Param('id') id: string) {
-		return this.categoryService.byId(id)
-	}
-
 	@Get('by-slug/:slug')
 	async getBySlug(@Param('slug') slug: string) {
-		return this.categoryService.bySlug(slug)
+		return this.categoryService.getBySlug(slug)
 	}
 
-  @HttpCode(200)
-  @Post()
-  async create() {
-    return this.categoryService.create()
-  }
+	@HttpCode(200)
+	@Post()
+	async create() {
+		return this.categoryService.create()
+	}
 
-  @UsePipes(new ValidationPipe())
-  @HttpCode(200)
-  @Put(':id')
-  async update(@Param('id') id: string, @Body() dto: CategoryDto) {
-    return this.categoryService.update(id, dto)
-  }
+	@UsePipes(new ValidationPipe())
+	@HttpCode(200)
+	@Put(':id')
+	async update(@Param('id') id: string, @Body() dto: CategoryDto) {
+		return this.categoryService.update(id, dto)
+	}
 
-  @HttpCode(200)
-  @Delete(':id')
-  async delete(@Param('id') id: string) {
-    return this.categoryService.delete(id)
-  }
+	@HttpCode(200)
+	@Delete(':id')
+	async delete(@Param('id') id: string) {
+		return this.categoryService.delete(id)
+	}
 }

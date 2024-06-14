@@ -10,7 +10,7 @@ export class UserService {
 	async getById(id: string, selectObject: Prisma.UserSelect = {}) {
 		const user = await this.prisma.user.findUnique({
 			where: {
-				id,
+				id
 			},
 			select: {
 				...returnUserObject,
@@ -23,16 +23,18 @@ export class UserService {
 						slug: true,
 						category: {
 							select: {
-								name: true,
-							},
-						},
-					},
+								name: true
+							}
+						}
+					}
 				},
-				...selectObject,
-			},
+				...selectObject
+			}
 		})
 
-		if (!user) throw new Error('User not found')
+		if (!user) {
+			throw new Error('User not found')
+		}
 
 		return user
 	}
@@ -40,23 +42,25 @@ export class UserService {
 	async toggleFavorite(userId: string, productId: string) {
 		const user = await this.getById(userId)
 
-		if (!user) throw new NotFoundException('User not found')
+		if (!user) throw new NotFoundException('User not found!')
 
-		const isExist = user.favorites.some(product => product.id === productId)
-	
-        await this.prisma.user.update({
-            where: {
-                id: user.id
-            },
-            data: {
-                favorites: {
-                    [isExist ? 'disconnect' : 'connect']: {
-                        id: productId
-                    } 
-                }
-            }
-        })
+		const isExists = user.favorites.some(
+			product => product.id === productId
+		)
 
-        return { message: 'Success'}
-    }
+		await this.prisma.user.update({
+			where: {
+				id: user.id
+			},
+			data: {
+				favorites: {
+					[isExists ? 'disconnect' : 'connect']: {
+						id: productId
+					}
+				}
+			}
+		})
+
+		return { message: 'Success' }
+	}
 }

@@ -1,24 +1,20 @@
-import { ApiProperty } from "@nestjs/swagger";
-import { IsNumber, IsString } from "class-validator";
+import { Prisma } from '@prisma/client'
+import { IsNumber, IsOptional, IsString } from 'class-validator'
 
-export class ProductDto {
-    @ApiProperty()
-    @IsString()
-    name: string
+export class ProductDto implements Prisma.ProductUpdateInput {
+	@IsString()
+	name: string
 
-    @ApiProperty()
-    @IsString()
-    description: string
+	@IsNumber()
+	price: number
 
-    @ApiProperty()
-    @IsString()
-    image: string
+	@IsOptional()
+	@IsString()
+	description: string
 
-    @ApiProperty()
-    @IsString()
-    categoryId: string
+	@IsString()
+	image: string
 
-    @ApiProperty()
-    @IsNumber()
-    price: number
+	@IsString()
+	categoryId: string
 }
