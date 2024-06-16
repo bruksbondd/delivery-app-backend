@@ -1,0 +1,21 @@
+{
+	"version": 2,
+	"env": {
+		"DATABASE_URL": "postgres://avnadmin:AVNS_F-f939f4NMQ9zHMs7l6@delivery-bruksbond.g.aivencloud.com:19219/defaultdb?sslmode=require",
+		"JWT_SECRET": "djfdjfsjksdfdrgrdrhttyuttuy",
+		"STRIPE_SECRET_KEY": "sk_test_51PRuozDWY1hr0vpfbExbf2drfa31r2ljymJJrIEAGGdOyqpClPLgJBxaZh6D57KbaFc7DvboHJAHvJ8LQ0BOu1SH00UeNdtYhj"
+	},
+	"builds": [
+		{
+			"src": "src/main.ts",
+			"use": "@vercel/node"
+		}
+	],
+	"routes": [
+		{
+			"src": "/(.*)",
+			"dest": "src/main.ts",
+			"methods": ["GET", "POST", "PUT", "PATCH", "DELETE"]
+		}
+	]
+}
