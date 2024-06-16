@@ -4,10 +4,12 @@ WORKDIR /app
 
 COPY package*.json ./
 
+RUN npm install -g @nestjs/cli
+
 RUN npm install
 
 COPY . .
 
-COPY ./dist ./dist
+CMD ["node", "dist/main"]
 
-CMD ["npm", "run", "start"]
+EXPOSE 8080
