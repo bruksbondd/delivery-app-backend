@@ -1,5 +1,5 @@
 {
-	"version": 3,
+	"version": 2,
 	"env": {
 		"DATABASE_URL": "postgres://avnadmin:AVNS_F-f939f4NMQ9zHMs7l6@delivery-bruksbond.g.aivencloud.com:19219/defaultdb?sslmode=require",
 		"JWT_SECRET": "djfdjfsjksdfdrgrdrhttyuttuy",
