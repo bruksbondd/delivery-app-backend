@@ -9,9 +9,13 @@ import { CategoryModule } from './category/category.module'
 import { ProductModule } from './product/product.module'
 import { UserModule } from './user/user.module'
 import { OrderModule } from './order/order.module';
+import { join } from 'path'
 
 @Module({
 	imports: [
+		ServeStaticModule.forRoot({
+			rootPath: join(__dirname, '..','dist'),
+		  }),
 		ServeStaticModule.forRoot({
 			rootPath: `${path}/uploads`,
 			serveRoot: '/uploads'
