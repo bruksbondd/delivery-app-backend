@@ -16,6 +16,14 @@ export declare class ProductService {
             avatarPath: string;
             phone: string;
         };
+        category: {
+            id: string;
+            createdAt: Date;
+            updatedAt: Date;
+            name: string;
+            slug: string;
+            image: string;
+        };
         id: string;
         createdAt: Date;
         updatedAt: Date;
@@ -31,14 +39,6 @@ export declare class ProductService {
         image: string;
         categoryId: string;
         userId: string;
-        category: {
-            id: string;
-            createdAt: Date;
-            updatedAt: Date;
-            name: string;
-            slug: string;
-            image: string;
-        };
         orderItems: {
             id: string;
             createdAt: Date;
@@ -60,6 +60,14 @@ export declare class ProductService {
             avatarPath: string;
             phone: string;
         };
+        category: {
+            id: string;
+            createdAt: Date;
+            updatedAt: Date;
+            name: string;
+            slug: string;
+            image: string;
+        };
         id: string;
         createdAt: Date;
         updatedAt: Date;
@@ -75,14 +83,6 @@ export declare class ProductService {
         image: string;
         categoryId: string;
         userId: string;
-        category: {
-            id: string;
-            createdAt: Date;
-            updatedAt: Date;
-            name: string;
-            slug: string;
-            image: string;
-        };
         orderItems: {
             id: string;
             createdAt: Date;
@@ -104,6 +104,14 @@ export declare class ProductService {
             avatarPath: string;
             phone: string;
         };
+        category: {
+            id: string;
+            createdAt: Date;
+            updatedAt: Date;
+            name: string;
+            slug: string;
+            image: string;
+        };
         id: string;
         createdAt: Date;
         updatedAt: Date;
@@ -119,14 +127,6 @@ export declare class ProductService {
         image: string;
         categoryId: string;
         userId: string;
-        category: {
-            id: string;
-            createdAt: Date;
-            updatedAt: Date;
-            name: string;
-            slug: string;
-            image: string;
-        };
         orderItems: {
             id: string;
             createdAt: Date;
@@ -148,6 +148,14 @@ export declare class ProductService {
             avatarPath: string;
             phone: string;
         };
+        category: {
+            id: string;
+            createdAt: Date;
+            updatedAt: Date;
+            name: string;
+            slug: string;
+            image: string;
+        };
         id: string;
         createdAt: Date;
         updatedAt: Date;
@@ -163,14 +171,6 @@ export declare class ProductService {
         image: string;
         categoryId: string;
         userId: string;
-        category: {
-            id: string;
-            createdAt: Date;
-            updatedAt: Date;
-            name: string;
-            slug: string;
-            image: string;
-        };
         orderItems: {
             id: string;
             createdAt: Date;
